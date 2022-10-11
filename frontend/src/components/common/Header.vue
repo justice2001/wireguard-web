@@ -5,10 +5,19 @@
       <option value="wg0">wg0</option>
     </select>
     <div id="login-user">admin</div>
+    <a @click="logout" style="color: #ffffff">Logout</a>
   </header>
 </template>
 
 <script setup>
+import {useRouter} from 'vue-router'
+
+const router = useRouter()
+
+const logout = () => {
+  window.localStorage.removeItem('user')
+  router.push('/login')
+}
 </script>
 
 <style scoped>

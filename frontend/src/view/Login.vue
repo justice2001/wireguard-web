@@ -10,13 +10,26 @@
       <span class="form-label">Password:</span>
       <input type="password">
     </div>
-    <button class="login-btn">Login-></button>
+    <button class="login-btn" @click="login">Login-></button>
   </div>
   <div class="bg-txt">WireGuard Console</div>
 </div>
 </template>
 
 <script setup>
+import {useRouter} from "vue-router";
+
+const router = useRouter()
+
+const login = () => {
+  let i = {
+    username: 'admin',
+    permission: 'admin',
+    login: true
+  }
+  window.localStorage.setItem('user', JSON.stringify(i))
+  router.push('/dashboard')
+}
 </script>
 
 <style scoped>
