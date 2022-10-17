@@ -10,4 +10,15 @@ request.interceptors.response.use(res => {
     return res
 })
 
-export default request
+const getInterfaceInfo = ifn => {
+    return request.get("/info/" + ifn)
+}
+
+const getInterfaceList = () => {
+    return request.get("/info/all")
+}
+
+export default {
+    getInterfaceInfo,
+    getInterfaceList
+}

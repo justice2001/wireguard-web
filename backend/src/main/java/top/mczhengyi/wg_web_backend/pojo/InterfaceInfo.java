@@ -1,11 +1,9 @@
 package top.mczhengyi.wg_web_backend.pojo;
 
 import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * WireGuard Interface Info
@@ -13,6 +11,7 @@ import java.util.Map;
  * @version 1.0.0
  */
 @Data
+@Slf4j
 public class InterfaceInfo {
     private String name;
     private String publicKey;
@@ -27,7 +26,10 @@ public class InterfaceInfo {
         Map<String, String> map = new HashMap<>();
         for (String value : s) {
             String[] kv = value.split(":");
-            map.put(kv[0].trim(), kv[1].trim());
+            log.debug("Parse Key/Value: {}", Arrays.toString(kv));
+            if (kv.length >= 2) {
+                map.put(kv[0].trim(), kv[1].trim());
+            }
         }
         // Set Data
         info.setName(map.get("interface"));

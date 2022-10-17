@@ -1,5 +1,5 @@
 const config = {
-    BACKEND: 'localhost'
+    BACKEND: '/wg'
 }
 
 export default config

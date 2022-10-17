@@ -6,6 +6,11 @@ export default defineConfig({
   plugins: [vue()],
   server: {
     proxy: {
+      "/wg": {
+        target: 'http://localhost:8080',
+        changeOrigin: true,
+        rewrite: path => path.replace(/^\/wg/, '')
+      }
     }
   }
 })

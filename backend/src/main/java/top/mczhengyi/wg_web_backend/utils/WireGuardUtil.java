@@ -3,6 +3,7 @@ package top.mczhengyi.wg_web_backend.utils;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.io.IOUtils;
 import top.mczhengyi.wg_web_backend.pojo.InterfaceInfo;
+import top.mczhengyi.wg_web_backend.pojo.PeerInfo;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -61,6 +62,11 @@ public class WireGuardUtil {
         String[] interfaceInfo = interfaceInfoSource.split("peer:");
         // 获取Interface信息
         InterfaceInfo info = InterfaceInfo.parse(interfaceInfo[0]);
+        // Put Peers
+        log.debug("Interface Info Count: {}", interfaceInfo.length);
+        for (int i = 1;i < interfaceInfo.length;i++) {
+            info.getPeers().add(PeerInfo.parse(interfaceInfo[i]));
+        }
         return info;
     }
 
