@@ -6,15 +6,15 @@
       class="client-qr">
   <div class="client-info-container">
     <div class="client-info-list">
-      <h3>{{props.info.friendlyName}} <span class="name">({{props.info.name}})</span></h3>
+      <h3>{{props.info.friendlyName}} <span class="name">({{props.info.platform}})</span></h3>
       <div class="client-info">IP: {{ props.info.ip }}</div>
-      <div class="client-info">AllowedIP: {{props.info.allowedIp}}</div>
-      <div class="client-info">LatestHandshake: {{props.info.lastHandShake}}</div>
+      <div class="client-info">转发IP: {{props.info.allowedIp}}</div>
+      <div class="client-info">最后一次握手: {{props.info.lastHandShake}}</div>
     </div>
     <div class="client-operation">
-      <a href="">Download Config</a>
-      <a href="">Edit</a>
-      <a class="danger" href="">Remove</a>
+      <a href="">下载配置文件</a>
+      <a href="">编辑</a>
+      <a class="danger" href="">删除</a>
     </div>
   </div>
 </div>
@@ -25,7 +25,7 @@ const props = defineProps({
   info: {
     type: Object,
     required: true,
-    default: { qr: '', name: '', friendlyName: '', ip: '', allowedIp: '', lastHandShake: ''}
+    default: { qr: '', platform: '', friendlyName: '', ip: '', allowedIp: '', lastHandShake: ''}
   }
 })
 </script>

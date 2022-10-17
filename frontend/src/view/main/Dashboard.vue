@@ -28,13 +28,6 @@ const getWeather = () => {
     response.value = JSON.stringify(res.data)
   })
 }
-
-const loginPve = () => {
-  pveRequest.post('access/ticket', {
-    username: 'root@pam',
-    password: 'justice@2001'
-  })
-}
 </script>
 
 <style scoped>
